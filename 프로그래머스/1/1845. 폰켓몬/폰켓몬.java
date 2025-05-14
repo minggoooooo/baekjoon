@@ -1,22 +1,15 @@
-import java.util.Arrays;
+import java.util.*;
+
 class Solution {
     public int solution(int[] nums) {
-        int num = nums.length/2;
-
-        Arrays.sort(nums);
         
-        int target = nums[0];
-        int answer = 1;
-        for (int i = 1;i < nums.length; i++) {
-            if (target != nums[i]){
-                if(answer<num){
-                     answer++;
-                }
-            }
-            target = nums[i];
+        Set<Integer> phoneketmon = new HashSet<>();
+        int max = nums.length/2;
+        for(int i = 0 ; i < nums.length; i++){
+            phoneketmon.add(nums[i]);
         }
-
+        int result = phoneketmon.size();
         
-        return answer;
+        return (result > max) ? max : result;
     }
 }
